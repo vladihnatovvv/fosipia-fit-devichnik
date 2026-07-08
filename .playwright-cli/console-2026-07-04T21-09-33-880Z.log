@@ -1,5 +1,0 @@
-[     561ms] [WARNING] [Meta pixel] 848080378310222 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ http://localhost:8123/js/fbevents.js:187
-[  141495ms] [WARNING] [Meta pixel] 848080378310222 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ http://localhost:8123/js/fbevents.js:187
-[  576329ms] [WARNING] [Meta pixel] 848080378310222 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ http://localhost:8123/js/fbevents.js:187
-[ 1178470ms] ReferenceError: fbq is not defined
-    at http://localhost:8123/js/fbevents.js:20:1

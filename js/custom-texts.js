@@ -1,0 +1,696 @@
+(() => {
+  const PAYMENT_URL = "https://buy.stripe.com/7sY14m1Yhcbnd3Ock84Ja03";
+  const INSTAGRAM_URL =
+    "https://www.instagram.com/vlada.lavrichenko?igsh=NTVmMzg3MGxlZmt0";
+  const SUPPORT_URL = "https://t.me/vlada_010";
+  const q = (sel, root = document) => root.querySelector(sel);
+  const qa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  const setText = (sel, text, root = document) => {
+    const el = q(sel, root);
+    if (el) el.textContent = text;
+  };
+
+  const setHTML = (sel, html, root = document) => {
+    const el = q(sel, root);
+    if (el) el.innerHTML = html;
+  };
+
+  const setList = (root, items) => {
+    if (!root) return;
+    root.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+  };
+
+  const hideAll = (sel) => {
+    qa(sel).forEach((el) => el.remove());
+  };
+
+  const setPrimaryButtonText = (root, text) => {
+    if (!root) return;
+    const textBlock = q(".cta-btn > div:first-child", root);
+    if (textBlock) textBlock.textContent = text;
+  };
+
+  const bulletListMarkup = (items) =>
+    items
+      .map(
+        (item) =>
+          `<div class="slider-bullet-item"><div>${item}</div></div>`
+      )
+      .join("");
+
+  const enableDesktopPhonePreview = () => {
+    const root = q(".main-wrap");
+    if (!root) return;
+
+    const applyPreview = () => {
+      const isDesktop = window.innerWidth > 479;
+      const targetWidth = Math.min(430, window.innerWidth - 32);
+
+      if (!isDesktop) {
+        document.body.style.background = "";
+        document.body.style.display = "";
+        document.body.style.justifyContent = "";
+        document.body.style.alignItems = "";
+        document.body.style.padding = "";
+        document.body.style.minHeight = "";
+        root.style.display = "block";
+        root.style.width = "";
+        root.style.zoom = "";
+        root.style.margin = "";
+        root.style.background = "";
+        root.style.boxShadow = "";
+        root.style.borderRadius = "";
+        root.style.overflow = "";
+
+        const stickyBtn = q(".cta-btn-wrap");
+        if (stickyBtn) {
+          stickyBtn.style.width = "";
+          stickyBtn.style.left = "";
+          stickyBtn.style.right = "";
+          stickyBtn.style.transform = "";
+          stickyBtn.style.margin = "";
+        }
+        return;
+      }
+
+      const scale = targetWidth / window.innerWidth;
+      document.body.style.background = "#f3f0f3";
+      document.body.style.display = "flex";
+      document.body.style.justifyContent = "center";
+      document.body.style.alignItems = "flex-start";
+      document.body.style.padding = "24px 16px";
+      document.body.style.minHeight = "100vh";
+
+      root.style.display = "block";
+      root.style.width = `${window.innerWidth}px`;
+      root.style.zoom = `${scale}`;
+      root.style.margin = "0 auto";
+      root.style.background = "#fff";
+      root.style.boxShadow = "0 24px 80px rgba(21, 21, 21, 0.12)";
+      root.style.borderRadius = "28px";
+      root.style.overflow = "hidden";
+
+      const stickyBtn = q(".cta-btn-wrap");
+      if (stickyBtn) {
+        stickyBtn.style.width = `${targetWidth}px`;
+        stickyBtn.style.left = "50%";
+        stickyBtn.style.right = "auto";
+        stickyBtn.style.transform = "translateX(-50%)";
+        stickyBtn.style.margin = "0 auto";
+      }
+    };
+
+    applyPreview();
+    window.addEventListener("resize", applyPreview);
+  };
+
+  const hero = q(".hero-sec");
+  if (hero) {
+    const content = q(".hero-content-wraper", hero);
+    const marker = document.createElement("div");
+    marker.className = "list-to-side upper";
+    marker.textContent = "МОЁ ДО/ПОСЛЕ + ОТЗЫВ КАТИ";
+    const heading = q(".hero-heading-wrapper", hero);
+    if (content && heading && !q(".hero-marker", hero)) {
+      marker.classList.add("hero-marker");
+      content.insertBefore(marker, heading);
+    }
+
+    setHTML(
+      ".hero-heading-wrapper",
+      '<h2 class="her-h">FIT-</h2><h2 class="her-h">ДЕВИЧНИК</h2>',
+      hero
+    );
+    setText(
+      ".hero-description",
+      "Место, где женщины возвращают себе наглость жить так, как хотят.",
+      hero
+    );
+
+    const heroBullets = q(".hero-rtb-bullets-wrapper", hero);
+    if (heroBullets) {
+      heroBullets.classList.remove("sec");
+      heroBullets.style.display = "flex";
+      heroBullets.style.flexDirection = "column";
+      heroBullets.style.alignItems = "flex-start";
+      heroBullets.style.gap = "3.2vw";
+      heroBullets.innerHTML = bulletListMarkup([
+        "🔥 Тело, которое хочется показывать, а не прятать",
+        "🔥 Энергия, которой хватает на мечты, а не только на работу и детей",
+        "🔥 Окружение, которое поджигает твои амбиции",
+        "🔥 Уверенность, после которой ты перестаёшь соглашаться на меньшее",
+        "🔥 Версия тебя, которая наконец начинает делать то, что годами откладывала",
+      ]);
+    }
+
+    setPrimaryButtonText(hero, "🔥 Я ХОЧУ В ЭТУ ТУСОВКУ");
+    const heroMeta = q(".hero-btn-timer", hero);
+    if (heroMeta) {
+      heroMeta.style.flexDirection = "column";
+      heroMeta.style.alignItems = "flex-start";
+      heroMeta.style.gap = "1.6vw";
+      heroMeta.innerHTML =
+        "<div>Отзыв Кати</div><div>Старт нового потока: ___</div><div>Осталось мест: ___</div>";
+    }
+  }
+
+  qa(".cta-btn").forEach((btn) => {
+    const first = btn.firstElementChild;
+    if (first) first.textContent = "🔥 Я ХОЧУ В ЭТУ ТУСОВКУ";
+    if (btn.tagName === "A") btn.href = PAYMENT_URL;
+  });
+  hideAll(".new-price-div");
+
+  qa('a[href*="wayforpay"], a[href*="buy.stripe.com"]').forEach((link) => {
+    link.href = PAYMENT_URL;
+  });
+
+  const footer = q(".footer");
+  if (footer) {
+    const footerBtn = q(".footer-btn", footer);
+    if (footerBtn) footerBtn.href = SUPPORT_URL;
+
+    const socialLinks = qa(".footer-social-link", footer);
+    if (socialLinks[0]) socialLinks[0].href = INSTAGRAM_URL;
+    if (socialLinks[1]) socialLinks[1].href = SUPPORT_URL;
+  }
+
+  const benefits = q(".benefits");
+  if (benefits) {
+    setHTML(
+      ".benefits-cont-wrap > .h2",
+      "⚠️ ПОБОЧНЫЕ ЭФФЕКТЫ <span class=\"ponk-italic\">FIT-ДЕВИЧНИКА</span>",
+      benefits
+    );
+    if (!q(".benefits-intro", benefits)) {
+      const intro = document.createElement("p");
+      intro.className = "benefit-p benefits-intro";
+      intro.innerHTML =
+        "Мы начинаем с тела.<br>Но красивая фигура — это только начало. ✨<br>Самое интересное начинается после…";
+      q(".benefits-cont-wrap", benefits)?.insertBefore(
+        intro,
+        q(".benefit-item", benefits)
+      );
+    }
+
+    const benefitTexts = [
+      "💥 Получают права.",
+      "💥 Запускают бизнес.",
+      "💥 Поднимают чек.",
+      "💥 Находят новые отношения.",
+      "💥 Уезжают реализовывать свои мечты.",
+    ];
+    qa(".benefit-item .benefit-p", benefits).forEach((el, i) => {
+      if (benefitTexts[i]) el.textContent = benefitTexts[i];
+    });
+
+    if (!q(".benefits-outro", benefits)) {
+      const outro = document.createElement("p");
+      outro.className = "benefit-p benefits-outro";
+      outro.innerHTML =
+        "👇Не веришь? Почитай, что пишут сами девчонки.<br><br>Тут отзывы:<br>про энергию<br>про бизнес<br>про цели<br>про внутренние изменения<br>не только про тело";
+      q(".benefits-cont-wrap", benefits)?.appendChild(outro);
+    }
+  }
+
+  const about = q(".about");
+  if (about) {
+    setText(".about-h-wrap .h2", "КОРОЧЕ…", about);
+    setHTML(
+      ".about-h-wrap .title",
+      "У меня есть <span class=\"border-bottom\">теория…</span>",
+      about
+    );
+
+    const groups = qa(".about-steps-items-wrap", about);
+    if (groups[0]) {
+      setText(".about-p", "Когда женщина начинает:", groups[0]);
+      const leftSteps = [
+        "✔ высыпаться",
+        "✔ нормально есть",
+        "✔ двигаться",
+        "✔ нравиться себе в зеркале",
+        "✔ перестаёт жить в режиме ПОСЛЕДНЕЙ НЕРВНОЙ КЛЕТКИ…",
+        "😏",
+      ];
+      qa(".about-step p", groups[0]).forEach((el, i) => {
+        if (leftSteps[i]) el.innerHTML = leftSteps[i];
+      });
+    }
+
+    if (groups[1]) {
+      setText(".about-p", "У неё появляется НАГЛОСТЬ:", groups[1]);
+      const rightSteps = [
+        "✨ проявляться",
+        "✨ сказать “нет”",
+        "✨ запустить бизнес",
+        "✨ поднять чек",
+        "✨ уйти оттуда, где её не ценят",
+        "✨ наконец выбрать себя",
+      ];
+      qa(".about-step p", groups[1]).forEach((el, i) => {
+        if (rightSteps[i]) el.innerHTML = rightSteps[i];
+      });
+    }
+  }
+
+  const system = q(".you-do-not-need");
+  if (system) {
+    const headings = qa(".you-do-not-need-heading-wrapper .h2", system);
+    if (headings[0]) {
+      headings[0].innerHTML =
+        "Если ты думаешь, что я <span class=\"h2-accent pink\">темщица</span> …";
+    }
+    if (headings[1]) headings[1].textContent = "то НЕТ. 😏";
+    setText(".list-to-side", "Ныряй 👇", system);
+
+    const slides = qa(".slide-item", system);
+    const slideData = [
+      {
+        title: "🧠 Психика.",
+        bullets: [
+          "Перестаём жить в режиме саботажа",
+          "Учимся выбирать себя",
+          "Меняем внутренние сценарии",
+        ],
+      },
+      {
+        title: "⚡ Гормоны.",
+        bullets: [
+          "Возвращаем энергию",
+          "Работаем с дефицитами",
+          "Создаём базу для больших изменений",
+        ],
+      },
+      {
+        title: "💪 Тело.",
+        bullets: [
+          "Запускаем тело",
+          "Нравимся себе в зеркале",
+          "Делаем изменения закономерностью",
+        ],
+      },
+    ];
+    slides.forEach((slide, i) => {
+      const data = slideData[i];
+      if (!data) return;
+      setText(".slide-item-heading", data.title, slide);
+      const bullets = q(".slider-bullets-wrapper", slide);
+      if (bullets) {
+        bullets.innerHTML = data.bullets
+          .map(
+            (item) =>
+              `<div class="slider-bullet-item"><img src="https://cdn.prod.website-files.com/69bb2c736344fec99e05628d/69bd64af96b79e9bfb1aec7f_bullet-arrow.svg" loading="lazy" alt="" class="bullet-arrow-icon"><div>${item}</div></div>`
+          )
+          .join("");
+      }
+    });
+  }
+
+  const reviews = q(".reviews-section");
+  if (reviews) {
+    setHTML(
+      ".review-wrapper .h2",
+      "👇Не веришь? Почитай, что пишут <span class=\"pink\">сами девчонки</span>",
+      reviews
+    );
+    const labels = qa(".slider-with-name .list-to-side", reviews);
+    if (labels[0]) labels[0].textContent = "/про энергию, бизнес, цели/";
+    if (labels[1]) {
+      labels[1].textContent =
+        "/про внутренние изменения, не только про тело/";
+    }
+  }
+
+  const weeks = qa(".program-week");
+  if (weeks.length === 4) {
+    const weekData = [
+      {
+        kicker: "🚀 НЕДЕЛЯ 1",
+        title: "Я СКАЗАЛА СТАРТУЕМ!",
+        subtitle:
+          "Главная цель — почувствовать, сколько энергии у тебя на самом деле и начать ею пользоваться В СВОЮ ВЫГОДУ.",
+        leftLabel: "/что внутри/",
+        leftText: "",
+        leftItems: [
+          "🩺 Диагностика, анализы",
+          "🍯 Первое гормональное меню с упором на дефициты",
+          "🛒 Список покупок",
+          "🏋️ Программа тренировок на этот месяц",
+          "🍑 Запуск ягодиц",
+          "👑 Работа над осанкой",
+          "🧠 Мини задания для связи психики с гормонами",
+        ],
+        challengeLabel: "🚀 Челлендж недели",
+        challengeTitle: "РЕЖИМ БОГА",
+        challengeText:
+          "7 дней живём по циркадным ритмам + запуск гормонов.",
+        challengeItems: [
+          "☀️ продуктивность по фазам дня",
+          "🥗 питание по времени",
+          "😴 похудение во сне",
+          "📵 вечерняя рутина",
+        ],
+      },
+      {
+        kicker: "НЕДЕЛЯ 2",
+        title: "ИМЯ САБОТАЖ ВАМ О ЧЁМ-НИБУДЬ ГОВОРИТ?",
+        subtitle: "Самая опасная неделя.",
+        leftLabel: "/что происходит/",
+        leftText: "Потому что именно здесь мы разрушаем все:",
+        leftItems: ["“не сейчас”", "“я боюсь”", "“я ещё не готова”"],
+        challengeLabel: "Челлендж недели",
+        challengeTitle: "АНТИСАБОТАЖ",
+        challengeText:
+          "Каждый день открывается новое короткое задание. Именно благодаря ему начинают происходить те самые истории:",
+        challengeItems: [
+          "🔥 запускаются проекты",
+          "🔥 появляются права",
+          "🔥 открываются бизнесы",
+          "🔥 закрываются дела, которые откладывались годами.",
+        ],
+      },
+      {
+        kicker: "НЕДЕЛЯ 3",
+        title: "НЕЗАКОННАЯ АКТИВНОСТЬ",
+        subtitle: "(разрешена только участницам FIT-Девичника) 😏",
+        leftLabel: "/что появляется/",
+        leftText: "Вот тут обычно начинается движ. 😏<br>И жизнь начинает ускоряться х2 💨💨💨.",
+        leftItems: ["— энергия.", "— азарт.", "— смелость.", "— драйв."],
+        challengeLabel: "🚨 Челлендж недели",
+        challengeTitle: "НЕДЕЛЯ ПОБЕД",
+        challengeText:
+          "Каждый день делаешь одно действие, которое давно откладывала.",
+        challengeItems: [
+          "📞 Позвонить.",
+          "🎥 Записать видео.",
+          "💸 Поднять чек.",
+          "❤️ Познакомиться.",
+          "🚗 Записаться на права.",
+        ],
+        challengeOutro:
+          "Именно здесь обычно начинается та самая “незаконная активность”. 😂",
+      },
+      {
+        kicker: "НЕДЕЛЯ 4",
+        title: "ВЫ ЧЁ ТВОРИТЕ?! ВЫ ЧЁ ВЫТВОРЯЕТЕ?!",
+        subtitle:
+          "Последняя неделя. Но именно здесь рождается новая версия тебя.",
+        leftLabel: "/что внутри/",
+        leftText: "",
+        leftItems: [
+          "🥐 Финальное меню",
+          "🏋️ Закрепляющие тренировки",
+          "📋 План после программы",
+          "📏 Финальные замеры",
+          "🎁 Выпускной",
+          "💜 Подведение итогов",
+          "🏆 Призы за лучший результат",
+        ],
+        challengeLabel: "Челлендж недели",
+        challengeTitle: "ТОЧКА НЕВОЗВРАТА",
+        challengeText:
+          "Создаём систему, с которой ты не откатишься через две недели.",
+        challengeItems: [
+          "План привычек.",
+          "План питания.",
+          "План тренировок.",
+          "Следующие цели.",
+        ],
+        challengeOutro:
+          "Чтобы FIT-Девичник закончился…<br>А изменения — нет. 😏",
+      },
+    ];
+
+    weeks.forEach((week, i) => {
+      const data = weekData[i];
+      if (!data) return;
+      setText(".program-week-kicker", data.kicker, week);
+      setText(".program-week-title", data.title, week);
+      setText(".program-week-subtitle", data.subtitle, week);
+
+      const cols = qa(".program-week-column", week);
+      if (cols[0]) {
+        cols[0].innerHTML = `
+          <div class="tab-result-txt">${data.leftLabel}</div>
+          ${data.leftText ? `<p class="program-week-text">${data.leftText}</p>` : ""}
+          <ul class="program-week-list${data.leftText ? " compact" : ""}">
+            ${(data.leftItems || []).map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+        `;
+      }
+      if (cols[1]) {
+        cols[1].innerHTML = `
+          <div class="tab-result-txt">/челлендж недели/</div>
+          <h4 class="program-week-challenge-title">${data.challengeLabel}</h4>
+          <p class="program-week-text"><strong>${data.challengeTitle}</strong></p>
+          ${data.challengeText ? `<p class="program-week-text">${data.challengeText}</p>` : ""}
+          <ul class="program-week-list compact">
+            ${(data.challengeItems || []).map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+          ${data.challengeOutro ? `<p class="program-week-text">${data.challengeOutro}</p>` : ""}
+        `;
+      }
+    });
+  }
+
+  const author = q(".author-of-course");
+  if (author) {
+    setText(".sticky-top-text .list-to-side", "/фейс-контроль/", author);
+    const authorHeadings = qa(".sticky-heading-wrap .h2", author);
+    if (authorHeadings[0]) authorHeadings[0].textContent = "✋🏼🚨 ГОП СТОП БАРЫШНЯ.";
+    if (authorHeadings[1]) authorHeadings[1].textContent = "Фейс-контроль FIT-Девичника.";
+
+    const quoteParts = qa(".quote-part > div", author);
+    const quoteTexts = [
+      "Любишь вкусно поесть?<br>Любишь ДЕРЗКИЕ цели?<br>Готова к немного безумным идеям?<br>Способна влюбиться в новую версию себя?",
+      "😏",
+      "Ну ладно…<br>Гена, пропускай её!",
+      "Она выглядит подозрительно вайбовой.<br>Боюсь, это наша бестия 😂",
+      "Погнали, покажу, что за дискотека внутри 👇",
+    ];
+    quoteParts.forEach((el, i) => {
+      if (quoteTexts[i]) el.innerHTML = quoteTexts[i];
+    });
+  }
+
+  const howItGoing = q(".how-it-going");
+  if (howItGoing) {
+    setText(".how-it-going-header .h2", "Что внутри FIT-Девичника", howItGoing);
+    const itemsWrap = q(".how-it-going-anim-wrapper", howItGoing);
+    let items = qa(".how-it-going-item", howItGoing);
+    while (itemsWrap && items.length < 7 && items[items.length - 1]) {
+      itemsWrap.appendChild(items[items.length - 1].cloneNode(true));
+      items = qa(".how-it-going-item", howItGoing);
+    }
+
+    const itemTexts = [
+      "🥐🥐 Меню каждую неделю<br>Чтобы вкусно есть и не думать, что приготовить.",
+      "🏋️ Тренировки для дома и зала<br>Под любой уровень подготовки.",
+      "🍑 Талия + ягодицы + осанка<br>Да, всё сразу 😏",
+      "🧠 Антисаботаж-челленджи<br>Потому что проблема редко только в еде.",
+      "👯‍♀️ Чат девчонок<br>В котором экшена больше чем в турецких сериалах.",
+      "💌 Моя поддержка<br>Потому что одной проходить путь всегда сложнее.",
+      "🚀 Система, которая останется с тобой после FIT-Девичника<br>А не закончится вместе с последним днём.",
+    ];
+
+    items.forEach((item, i) => {
+      const textEl = q(".how-it-going-item-content > div:last-child", item);
+      if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
+    });
+  }
+
+  if (reviews) {
+    setHTML(
+      ".review-wrapper .h2",
+      "🔥 АШАЛЕЕЕЕТЬ, МОИ <span class=\"pink\">ЛЕГЕНДЫ!!!</span> 🔥<br>Ни стыда. Ни совести. Одни результаты.",
+      reviews
+    );
+    const labels = qa(".slider-with-name .list-to-side", reviews);
+    if (labels[0]) labels[0].textContent = "/основные кейсы/";
+    if (labels[1]) labels[1].textContent = "/дополнительные ракурсы/";
+
+    const resultGroups = qa(".slider-with-name", reviews);
+    const primaryCases = [
+      {
+        name: "Катюша",
+        meta: "фронт + профиль",
+        image: "images/reviews/katyusha-main.jpg",
+      },
+      {
+        name: "Карина",
+        meta: "основной коллаж",
+        image: "images/reviews/karina-main.jpg",
+      },
+      {
+        name: "Наташка",
+        meta: "фронт",
+        image: "images/reviews/natashka-main.jpg",
+      },
+      {
+        name: "Настя, школьная подружка",
+        meta: "фронт + профиль",
+        image: "images/reviews/nastya-main.jpg",
+      },
+    ];
+    const extraCases = [
+      {
+        name: "Катюша",
+        meta: "фронт + спина",
+        image: "images/reviews/katyusha-back.jpg",
+      },
+      {
+        name: "Карина",
+        meta: "профиль",
+        image: "images/reviews/karina-side.jpg",
+      },
+      {
+        name: "Карина",
+        meta: "крупный профиль",
+        image: "images/reviews/karina-side-close.jpg",
+      },
+      {
+        name: "Наташка",
+        meta: "профиль",
+        image: "images/reviews/natashka-side.jpg",
+      },
+      {
+        name: "Настя, школьная подружка",
+        meta: "спина + фронт",
+        image: "images/reviews/nastya-back.jpg",
+      },
+      {
+        name: "Настя, школьная подружка",
+        meta: "дополнительный профиль",
+        image: "images/reviews/nastya-side-alt.jpg",
+      },
+    ];
+
+    const renderReviewSlides = (group, cases, topClass = "") => {
+      if (!group) return;
+      const mask = q(".mask", group);
+      if (!mask) return;
+      mask.innerHTML = cases
+        .map(
+          (item) => {
+            const titleClass = ["slide-result-text-wrap", topClass]
+              .filter(Boolean)
+              .join(" ");
+            return `
+            <div class="review-slide w-slide">
+              <div class="review-slide-inner">
+                <div class="${titleClass}">
+                  <div class="medium">${item.name}</div>
+                  <div class="_14-151515">${item.meta}</div>
+                </div>
+                <div>
+                  <img src="${item.image}" loading="lazy" alt="${item.name}" class="review-slide-image"/>
+                </div>
+              </div>
+            </div>
+          `;
+          }
+        )
+        .join("");
+    };
+
+    renderReviewSlides(resultGroups[0], primaryCases);
+    if (resultGroups[1]) {
+      resultGroups[1].remove();
+    }
+  }
+
+  const approach = q(".approach");
+  if (approach) {
+    const approachTexts = qa(".approach-txt", approach);
+    if (approachTexts[0]) approachTexts[0].innerHTML = "🚨 Я НЕ ДОГОВОРИЛА!!! 😂";
+    if (approachTexts[1]) approachTexts[1].innerHTML = "Сейчас покажу варианты участия 😏👇";
+    if (approachTexts[2]) approachTexts[2].innerHTML = "";
+  }
+
+  const faq = q(".faq");
+  if (faq) {
+    const faqHeadings = qa(".faq-heading-wrapper .h2-faq", faq);
+    if (faqHeadings[0]) faqHeadings[0].innerHTML = "<span class=\"faq-pink\">ТАРИФЫ</span>";
+    if (faqHeadings[1]) faqHeadings[1].innerHTML = "Выбирай формат участия";
+
+    const faqItems = qa(".faq-item", faq);
+    const tariffData = [
+      {
+        question: "Тариф 1 • 💎 Я ХОЧУ ВСЁ И СРАЗУ • $990",
+        label: "/vip/",
+        answer:
+          "VIP-формат для тех, кто хочет максимум внимания, сопровождения и личной работы.",
+      },
+      {
+        question: "Тариф 2 • 🔥 FIT-ДЕВИЧНИК «ТОЧКА НЕВОЗВРАТА» • $150",
+        label: "/популярный/",
+        answer:
+          "Самый популярный формат. Здесь происходит вся магия: программа, чат, задания, поддержка, движ, результаты и та самая атмосфера.",
+      },
+      {
+        question: "Тариф 3 • 🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
+        label: "/лайт/",
+        answer:
+          "Лайт-формат для тех, кто хочет зайти мягко, попробовать систему и почувствовать атмосферу FIT-Девичника.",
+      },
+      {
+        question: "А попроще можно? 😳",
+        label: "/ответ/",
+        answer:
+          "YEEESSS GIIIRLL<br><br>Вася, выдыхай! 😂 Есть ещё один вариант.",
+      },
+    ];
+
+    faqItems.forEach((item, i) => {
+      const data = tariffData[i];
+      if (!data) return;
+      setText(".faq-question", data.question, item);
+      setText(".faq-body-wrap .tab-result-txt", data.label, item);
+      setHTML(".faq-answer", data.answer, item);
+    });
+  }
+
+  const message = q(".message");
+  if (message) {
+    const messageHeadings = qa(".message-title-wrap .h2", message);
+    if (messageHeadings[0]) messageHeadings[0].textContent = "А ПОПРОЩЕ МОЖНО? 😳";
+    if (messageHeadings[1]) messageHeadings[1].textContent = "YEEESSS GIIIRLL";
+
+    const messageTexts = [
+      "Тариф 1",
+      "💎 Я ХОЧУ ВСЁ И СРАЗУ",
+      "$990",
+      "VIP-формат для тех, кто хочет максимум внимания, сопровождения и личной работы.",
+      "Вася, выдыхай! 😂",
+      "Есть ещё один вариант.",
+      "Тариф 3",
+      "🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
+    ];
+
+    const nodes = qa(".message-wrap > div, .message-wrap-pink > div", message);
+    nodes.forEach((el, i) => {
+      if (messageTexts[i]) el.innerHTML = messageTexts[i];
+    });
+  }
+
+  const cta = q(".cta");
+  if (cta) {
+    const ctaHeadings = qa(".cta-title-wrap .h2", cta);
+    if (ctaHeadings[0]) ctaHeadings[0].textContent = "Если честно…";
+    if (ctaHeadings[1]) {
+      ctaHeadings[1].textContent = "лучше один раз прожить, чем сто раз прочитать";
+    }
+    setHTML(
+      ".cta-p",
+      "Я могу ещё долго рассказывать, что происходит внутри FIT-Девичника.<br><br>Но это тот случай, когда лучше один раз прожить, чем сто раз прочитать.<br><br>Потому что сюда приходят за красивой фигурой.<br>А потом вдруг понимают, что тело было только началом.<br><br>И знаешь, что самое классное?<br><br>Очень сложно продолжать жить “как раньше”, когда ты снова начинаешь кайфовать от себя. 😏",
+      cta
+    );
+    setPrimaryButtonText(cta, "🔥 Я ХОЧУ В ЭТУ ТУСОВКУ");
+    const ctaMeta = q(".hero-btn-timer", cta);
+    if (ctaMeta) ctaMeta.innerHTML = "";
+  }
+
+  enableDesktopPhonePreview();
+})();

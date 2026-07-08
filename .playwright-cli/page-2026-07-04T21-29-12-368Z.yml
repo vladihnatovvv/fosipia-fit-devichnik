@@ -1,0 +1,113 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - heading "Программа" [level=2] [ref=f3e6]
+      - heading "FIT-Девичника" [level=2] [ref=f3e7]
+    - generic [ref=f3e9]: /4 недели/
+    - generic [ref=f3e10]:
+      - group [ref=f3e11]:
+        - generic "Неделя 1 Я СКАЗАЛА СТАРТУЕМ! Главная цель — почувствовать, сколько энергии у тебя на самом деле и начать ею пользоваться В СВОЮ ВЫГОДУ." [ref=f3e12] [cursor=pointer]:
+          - generic [ref=f3e13]: Неделя 1
+          - generic [ref=f3e14]:
+            - heading "Я СКАЗАЛА СТАРТУЕМ!" [level=3] [ref=f3e15]
+            - paragraph [ref=f3e16]: Главная цель — почувствовать, сколько энергии у тебя на самом деле и начать ею пользоваться В СВОЮ ВЫГОДУ.
+        - generic [ref=f3e19]:
+          - generic [ref=f3e20]:
+            - generic [ref=f3e21]: /что внутри/
+            - list [ref=f3e22]:
+              - listitem [ref=f3e23]: Диагностика, анализы
+              - listitem [ref=f3e24]: Первое гормональное меню с упором на дефициты
+              - listitem [ref=f3e25]: Список покупок
+              - listitem [ref=f3e26]: Программа тренировок на этот месяц
+              - listitem [ref=f3e27]: Запуск ягодиц
+              - listitem [ref=f3e28]: Работа над осанкой
+              - listitem [ref=f3e29]: Мини задания для связи психики с гормонами
+          - generic [ref=f3e30]:
+            - generic [ref=f3e31]: /челлендж недели/
+            - heading "РЕЖИМ БОГА" [level=4] [ref=f3e32]
+            - paragraph [ref=f3e33]: 7 дней живём по циркадным ритмам + запуск гормонов.
+            - list [ref=f3e34]:
+              - listitem [ref=f3e35]: Продуктивность по фазам дня
+              - listitem [ref=f3e36]: Питание по времени
+              - listitem [ref=f3e37]: Похудение во сне
+              - listitem [ref=f3e38]: Вечерняя рутина
+      - group [ref=f3e39]:
+        - generic "Неделя 2 ИМЯ САБОТАЖ ВАМ О ЧЁМ-НИБУДЬ ГОВОРИТ? Самая опасная неделя." [ref=f3e40] [cursor=pointer]:
+          - generic [ref=f3e41]: Неделя 2
+          - generic [ref=f3e42]:
+            - heading "ИМЯ САБОТАЖ ВАМ О ЧЁМ-НИБУДЬ ГОВОРИТ?" [level=3] [ref=f3e43]
+            - paragraph [ref=f3e44]: Самая опасная неделя.
+      - group [ref=f3e46]:
+        - generic "Неделя 3 НЕЗАКОННАЯ АКТИВНОСТЬ Разрешена только участницам FIT-Девичника." [ref=f3e47] [cursor=pointer]:
+          - generic [ref=f3e48]: Неделя 3
+          - generic [ref=f3e49]:
+            - heading "НЕЗАКОННАЯ АКТИВНОСТЬ" [level=3] [ref=f3e50]
+            - paragraph [ref=f3e51]: Разрешена только участницам FIT-Девичника.
+      - group [ref=f3e53]:
+        - generic "Неделя 4 ВЫ ЧЁ ТВОРИТЕ?! ВЫ ЧЁ ВЫТВОРЯЕТЕ?! Последняя неделя. Но именно здесь рождается новая версия тебя." [ref=f3e54] [cursor=pointer]:
+          - generic [ref=f3e55]: Неделя 4
+          - generic [ref=f3e56]:
+            - heading "ВЫ ЧЁ ТВОРИТЕ?! ВЫ ЧЁ ВЫТВОРЯЕТЕ?!" [level=3] [ref=f3e57]
+            - paragraph [ref=f3e58]: Последняя неделя. Но именно здесь рождается новая версия тебя.
+  - generic [ref=f3e61]:
+    - heading "Краще за будь-які обіцянки скажуть результати дівчат" [level=1] [ref=f3e64]
+    - generic [ref=f3e65]:
+      - generic [ref=f3e66]: /результати/
+      - region "carousel" [ref=f3e67]:
+        - generic [ref=f3e68]:
+          - group "1 of 3" [ref=f3e69]:
+            - generic [ref=f3e71]:
+              - generic [ref=f3e72]: Саша, 25 років
+              - generic [ref=f3e73]: Схудла на 16 кг
+          - group [ref=f3e75]:
+            - generic [ref=f3e76]:
+              - generic [ref=f3e77]:
+                - generic [ref=f3e78]: Юлія, 34 роки
+                - generic [ref=f3e79]: Схудла на 25 кг
+              - img [ref=f3e81]
+          - group [ref=f3e82]:
+            - generic [ref=f3e83]:
+              - generic [ref=f3e84]:
+                - generic [ref=f3e85]: Наталія, 29 років
+                - generic [ref=f3e86]: Схудла на 14 кг
+              - img [ref=f3e88]
+        - button "previous slide" [ref=f3e90] [cursor=pointer]
+        - button "next slide" [ref=f3e91] [cursor=pointer]
+    - generic [ref=f3e92]:
+      - generic [ref=f3e93]: /відгуки/
+      - region "carousel" [ref=f3e94]:
+        - generic [ref=f3e95]:
+          - group "1 of 7" [ref=f3e96]:
+            - generic [ref=f3e99]:
+              - text: Анастасія
+              - text: Пашко
+          - group [ref=f3e100]:
+            - generic [ref=f3e101]:
+              - generic [ref=f3e102]:
+                - img [ref=f3e103]
+                - generic [ref=f3e104]: Людмила Іванова
+              - img [ref=f3e105]
+          - group [ref=f3e106]:
+            - generic [ref=f3e107]:
+              - generic [ref=f3e108]:
+                - img [ref=f3e109]
+                - generic [ref=f3e110]: Катерина Мельник
+              - img [ref=f3e111]
+          - group [ref=f3e112]:
+            - generic [ref=f3e114]:
+              - img [ref=f3e115]
+              - generic [ref=f3e116]: Віка Смиковська
+          - group [ref=f3e117]:
+            - generic [ref=f3e119]:
+              - img [ref=f3e120]
+              - generic [ref=f3e121]: Мілана Нестеренко
+          - group [ref=f3e122]:
+            - generic [ref=f3e124]:
+              - img [ref=f3e125]
+              - generic [ref=f3e126]: Катерина Чехова
+          - group [ref=f3e127]:
+            - generic [ref=f3e129]:
+              - img [ref=f3e130]
+              - generic [ref=f3e131]: Софія Коваль
+        - button "previous slide" [ref=f3e133] [cursor=pointer]
+        - button "next slide" [ref=f3e134] [cursor=pointer]

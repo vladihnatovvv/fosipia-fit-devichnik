@@ -314,6 +314,15 @@
       const data = slideData[i];
       if (!data) return;
       setText(".slide-item-heading", data.title, slide);
+      const photo = q(".system-photo", slide);
+      if (photo && i === 0) {
+        photo.src = "images/you-do-not-need-1.png";
+        photo.alt = "FIT-Девичник";
+      }
+      if (photo && i === 1) {
+        photo.src = "images/you-do-not-need-2.png";
+        photo.alt = "FIT-Девичник";
+      }
       const bullets = q(".slider-bullets-wrapper", slide);
       if (bullets) {
         bullets.innerHTML = data.bullets

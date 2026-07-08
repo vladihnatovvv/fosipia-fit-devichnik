@@ -704,8 +704,9 @@
 
   const cta = q(".cta");
   if (cta) {
-    cta.style.backgroundImage = 'url("images/final-cta-photo.jpg")';
-    cta.style.backgroundPosition = "50% 22%";
+    cta.style.backgroundImage =
+      'linear-gradient(0deg, rgba(21, 21, 21, 0.56), rgba(21, 21, 21, 0.56)), url("images/final-cta-photo.jpg")';
+    cta.style.backgroundPosition = "50% calc(22% - 50px)";
     cta.style.backgroundSize = "cover";
     cta.style.backgroundRepeat = "no-repeat";
 

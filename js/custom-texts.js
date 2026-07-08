@@ -712,6 +712,11 @@
 
   const cta = q(".cta");
   if (cta) {
+    cta.style.backgroundImage = 'url("images/final-cta-photo.jpg")';
+    cta.style.backgroundPosition = "50% 22%";
+    cta.style.backgroundSize = "cover";
+    cta.style.backgroundRepeat = "no-repeat";
+
     const ctaHeadings = qa(".cta-title-wrap .h2", cta);
     if (ctaHeadings[0]) ctaHeadings[0].textContent = "Если честно…";
     if (ctaHeadings[1]) {

@@ -116,21 +116,13 @@
       marker.classList.add("hero-marker");
       content.insertBefore(marker, heading);
     }
-
-    if (content && !q(".hero-custom-photo", hero)) {
-      const heroPhoto = document.createElement("img");
-      heroPhoto.className = "hero-custom-photo";
-      heroPhoto.src = "images/hero-main.jpg";
-      heroPhoto.alt = "FIT-Девичник";
-      heroPhoto.loading = "lazy";
-      heroPhoto.style.width = "100%";
-      heroPhoto.style.borderRadius = "6vw";
-      heroPhoto.style.objectFit = "cover";
-      heroPhoto.style.display = "block";
-      heroPhoto.style.marginBottom = "6vw";
-      heroPhoto.style.boxShadow = "0 6vw 16vw rgba(21, 21, 21, 0.12)";
-      content.insertBefore(heroPhoto, marker);
-    }
+    const heroPhoto = q(".hero-custom-photo", hero);
+    if (heroPhoto) heroPhoto.remove();
+    hero.style.backgroundImage =
+      'linear-gradient(0deg, rgba(21, 21, 21, 0.82), rgba(21, 21, 21, 0.42)), url("images/hero-main.jpg")';
+    hero.style.backgroundPosition = "50% 50%";
+    hero.style.backgroundSize = "cover";
+    hero.style.backgroundRepeat = "no-repeat";
 
     setHTML(
       ".hero-heading-wrapper",

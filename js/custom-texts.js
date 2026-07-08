@@ -171,6 +171,9 @@
     const footerBtn = q(".footer-btn", footer);
     if (footerBtn) footerBtn.href = SUPPORT_URL;
 
+    const footerLogo = q(".footer-bottom-wrap > img", footer);
+    if (footerLogo) footerLogo.remove();
+
     const socialLinks = qa(".footer-social-link", footer);
     if (socialLinks[0]) socialLinks[0].href = INSTAGRAM_URL;
     if (socialLinks[1]) socialLinks[1].href = SUPPORT_URL;

@@ -117,6 +117,21 @@
       content.insertBefore(marker, heading);
     }
 
+    if (content && !q(".hero-custom-photo", hero)) {
+      const heroPhoto = document.createElement("img");
+      heroPhoto.className = "hero-custom-photo";
+      heroPhoto.src = "images/hero-main.jpg";
+      heroPhoto.alt = "FIT-Девичник";
+      heroPhoto.loading = "lazy";
+      heroPhoto.style.width = "100%";
+      heroPhoto.style.borderRadius = "6vw";
+      heroPhoto.style.objectFit = "cover";
+      heroPhoto.style.display = "block";
+      heroPhoto.style.marginBottom = "6vw";
+      heroPhoto.style.boxShadow = "0 6vw 16vw rgba(21, 21, 21, 0.12)";
+      content.insertBefore(heroPhoto, marker);
+    }
+
     setHTML(
       ".hero-heading-wrapper",
       '<h2 class="her-h">FIT-</h2><h2 class="her-h">ДЕВИЧНИК</h2>',

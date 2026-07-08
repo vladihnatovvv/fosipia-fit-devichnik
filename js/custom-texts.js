@@ -484,6 +484,14 @@
 
   const author = q(".author-of-course");
   if (author) {
+    const stickyPart = q(".sticky-part", author);
+    if (stickyPart) {
+      stickyPart.style.backgroundImage = 'url("images/face-control-photo.jpg")';
+      stickyPart.style.backgroundPosition = "50% 50%";
+      stickyPart.style.backgroundSize = "cover";
+      stickyPart.style.backgroundRepeat = "no-repeat";
+    }
+
     setText(".sticky-top-text .list-to-side", "/фейс-контроль/", author);
     const authorHeadings = qa(".sticky-heading-wrap .h2", author);
     if (authorHeadings[0]) authorHeadings[0].textContent = "✋🏼🚨 ГОП СТОП БАРЫШНЯ.";

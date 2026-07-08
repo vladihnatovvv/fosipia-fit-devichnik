@@ -119,7 +119,7 @@
     const heroPhoto = q(".hero-custom-photo", hero);
     if (heroPhoto) heroPhoto.remove();
     hero.style.backgroundImage =
-      'linear-gradient(0deg, rgba(21, 21, 21, 0.82), rgba(21, 21, 21, 0.42)), url("images/hero-main.jpg")';
+      'linear-gradient(0deg, rgba(21, 21, 21, 0.9), rgba(21, 21, 21, 0.62)), url("images/hero-main.jpg")';
     hero.style.backgroundPosition = "50% 50%";
     hero.style.backgroundSize = "cover";
     hero.style.backgroundRepeat = "no-repeat";

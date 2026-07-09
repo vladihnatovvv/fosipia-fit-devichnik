@@ -1,4 +1,6 @@
 (() => {
+  document.documentElement.lang = "ru";
+
   const PAYMENT_URL = "https://buy.stripe.com/7sY14m1Yhcbnd3Ock84Ja03";
   const INSTAGRAM_URL =
     "https://www.instagram.com/vlada.lavrichenko?igsh=NTVmMzg3MGxlZmt0";
@@ -38,6 +40,47 @@
           `<div class="slider-bullet-item"><div>${item}</div></div>`
       )
       .join("");
+
+  const startCountdown = () => {
+    const timerGroups = qa(".timer-wrap");
+    if (!timerGroups.length) return;
+
+    const getDeadline = () => {
+      const now = new Date();
+      const deadline = new Date(now);
+      deadline.setHours(24, 0, 0, 0);
+      return deadline;
+    };
+
+    let deadline = getDeadline();
+    const format = (value) => String(value).padStart(2, "0");
+
+    const update = () => {
+      const now = new Date();
+      if (now >= deadline) {
+        deadline = getDeadline();
+      }
+
+      const diff = Math.max(deadline.getTime() - now.getTime(), 0);
+      const totalSeconds = Math.floor(diff / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      timerGroups.forEach((timer) => {
+        const hoursEl = q(".hours", timer);
+        const minutesEl = q(".minutes", timer);
+        const secondsEl = q(".seconds", timer);
+
+        if (hoursEl) hoursEl.textContent = format(hours);
+        if (minutesEl) minutesEl.textContent = format(minutes);
+        if (secondsEl) secondsEl.textContent = format(seconds);
+      });
+    };
+
+    update();
+    window.setInterval(update, 1000);
+  };
 
   const enableDesktopPhonePreview = () => {
     const root = q(".main-wrap");
@@ -167,6 +210,13 @@
     if (first) first.textContent = "🔥 Я ХОЧУ В ЭТУ ТУСОВКУ";
     if (btn.tagName === "A") btn.href = PAYMENT_URL;
   });
+
+  const stickyButtonText = q(".cta-btn-wrap .cta-btn > div:first-child");
+  if (stickyButtonText) {
+    stickyButtonText.style.whiteSpace = "nowrap";
+    stickyButtonText.style.fontSize = "4vw";
+    stickyButtonText.style.lineHeight = "1";
+  }
   hideAll(".new-price-div");
 
   qa('a[href*="wayforpay"], a[href*="buy.stripe.com"]').forEach((link) => {
@@ -177,6 +227,18 @@
   if (footer) {
     const footerBtn = q(".footer-btn", footer);
     if (footerBtn) footerBtn.href = SUPPORT_URL;
+
+    setText(".footer-title", "Возникли вопросы?", footer);
+    setHTML(
+      ".footer-p",
+      "Нажми кнопку <span class=\"faq-pink\">«Поддержка»</span> внизу, и ты сразу попадёшь в наш Telegram, где сможешь получить всю информацию о программе.",
+      q(".footer-cta-wrap", footer)
+    );
+    setText(".footer-btn div:last-child", "Поддержка", footer);
+    setText(".footer-social-wrap .footer-p", "Я в соцсетях", footer);
+    const footerLinks = qa(".footer-link", footer);
+    if (footerLinks[0]) footerLinks[0].textContent = "Политика конфиденциальности";
+    if (footerLinks[1]) footerLinks[1].textContent = "Публичная оферта";
 
     const footerLogo = q(".footer-bottom-wrap > img", footer);
     if (footerLogo) footerLogo.remove();
@@ -313,6 +375,10 @@
       }
       if (photo && i === 1) {
         photo.src = "images/you-do-not-need-2.png";
+        photo.alt = "FIT-Девичник";
+      }
+      if (photo && i === 2) {
+        photo.src = "images/you-do-not-need-3.png";
         photo.alt = "FIT-Девичник";
       }
       const bullets = q(".slider-bullets-wrapper", slide);
@@ -505,6 +571,13 @@
   const howItGoing = q(".how-it-going");
   if (howItGoing) {
     setText(".how-it-going-header .h2", "Что внутри FIT-Девичника", howItGoing);
+    const howBadge = q(".how-it-going-image", howItGoing);
+    if (howBadge) {
+      const badge = document.createElement("div");
+      badge.className = "list-to-side";
+      badge.textContent = "#удобный формат";
+      howBadge.replaceWith(badge);
+    }
     const itemsWrap = q(".how-it-going-anim-wrapper", howItGoing);
     let items = qa(".how-it-going-item", howItGoing);
     while (itemsWrap && items.length < 7 && items[items.length - 1]) {
@@ -725,5 +798,6 @@
     if (ctaMeta) ctaMeta.innerHTML = "";
   }
 
+  startCountdown();
   enableDesktopPhonePreview();
 })();

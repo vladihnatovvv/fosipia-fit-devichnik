@@ -3104,7 +3104,7 @@ p {
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 92.2667vw;
+    padding-top: 36vw;
     padding-bottom: 14.6667vw;
   }
 
@@ -3436,6 +3436,24 @@ p {
     display: flex;
     position: fixed;
     inset: auto 0% 0;
+  }
+
+  .cta-btn-wrap .cta-btn {
+    white-space: nowrap;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 4.6vw 3vw;
+    font-size: 4vw;
+  }
+
+  .cta-btn-wrap .cta-btn > div:first-child {
+    white-space: nowrap;
+    font-size: 4vw;
+    line-height: 1;
+  }
+
+  .cta-btn-wrap .timer-wrap {
+    flex: 0 0 auto;
   }
 
   .crossed {

@@ -636,6 +636,19 @@
         return;
       }
 
+      if (i === 1) {
+        content.classList.add("training-card-with-photos");
+        content.innerHTML = `
+          <div class="training-photo-cluster" aria-hidden="true">
+            <img src="images/training-photo-1.png" alt="" class="training-photo training-photo-1"/>
+            <img src="images/training-photo-2.png" alt="" class="training-photo training-photo-2"/>
+            <img src="images/training-photo-3.png" alt="" class="training-photo training-photo-3"/>
+          </div>
+          <div class="training-card-text">${itemTexts[i]}</div>
+        `;
+        return;
+      }
+
       const textEl = content.lastElementChild;
       if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
     });

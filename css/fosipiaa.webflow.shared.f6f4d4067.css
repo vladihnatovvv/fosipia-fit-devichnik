@@ -3737,6 +3737,61 @@ p {
     width: 100%;
   }
 
+  .how-it-going-item-content.training-card-with-photos {
+    grid-column-gap: 4vw;
+    grid-row-gap: 4vw;
+    opacity: 1;
+    min-height: 70vw;
+    height: auto;
+    padding: 34.6667vw 4vw 5.33333vw;
+    position: relative;
+    overflow: visible;
+  }
+
+  .training-photo-cluster {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    inset: 4vw 0 auto;
+  }
+
+  .training-photo {
+    object-fit: cover;
+    background-color: #fff;
+    border: .8vw solid #fff;
+    border-radius: 4vw;
+    box-shadow: 0 2.66667vw 8vw rgba(21, 21, 21, .2);
+    position: absolute;
+  }
+
+  .training-photo-1 {
+    width: 27.2vw;
+    height: 23.4667vw;
+    top: 7.46667vw;
+    left: 3.2vw;
+    transform: rotate(-6deg);
+  }
+
+  .training-photo-2 {
+    z-index: 2;
+    width: 25.6vw;
+    height: 30.9333vw;
+    top: 0;
+    left: 26.9333vw;
+  }
+
+  .training-photo-3 {
+    width: 25.6vw;
+    height: 30.9333vw;
+    top: 2.66667vw;
+    right: 3.2vw;
+    transform: rotate(6deg);
+  }
+
+  .training-card-text {
+    width: 100%;
+  }
+
   .how-it-going-item-content.is-2 {
     opacity: 1;
     background-color: #eb82e1;

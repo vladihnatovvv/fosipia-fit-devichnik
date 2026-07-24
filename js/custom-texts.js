@@ -639,7 +639,7 @@
         image: "images/reviews/karina-main.jpg",
       },
       {
-        name: "Наталья",
+        name: "Наташка",
         meta: "фронт",
         image: "images/reviews/natashka-main.jpg",
       },
@@ -686,9 +686,14 @@
         image: "images/reviews/karina-side-close.jpg",
       },
       {
-        name: "Наталья",
+        name: "Наташка",
         meta: "профиль",
         image: "images/reviews/natashka-side.jpg",
+      },
+      {
+        name: "Наташка",
+        meta: "результат в жизни",
+        image: "images/reviews/natashka-life.jpg",
       },
       {
         name: "Настя",

@@ -3786,7 +3786,7 @@ p {
 
   .how-it-going {
     padding-top: 21.3333vw;
-    padding-bottom: 21.3333vw;
+    padding-bottom: 8vw;
   }
 
   .how-it-going-content-wrapper {
@@ -3821,6 +3821,10 @@ p {
 
   .how-it-going-item {
     padding-bottom: 3.2vw;
+  }
+
+  .how-it-going-item:last-child {
+    padding-bottom: 0;
   }
 
   .how-it-going-item-content {

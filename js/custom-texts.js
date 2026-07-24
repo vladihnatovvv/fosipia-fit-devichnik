@@ -675,6 +675,18 @@
         return;
       }
 
+      if (i === 4) {
+        content.classList.add("chat-card-with-photos");
+        content.innerHTML = `
+          <div class="chat-photo-cluster" aria-hidden="true">
+            <img src="images/chat-photo-1.png" alt="" class="chat-photo chat-photo-1"/>
+            <img src="images/chat-photo-2.jpg" alt="" class="chat-photo chat-photo-2"/>
+          </div>
+          <div class="chat-card-text">${itemTexts[i]}</div>
+        `;
+        return;
+      }
+
       const textEl = content.lastElementChild;
       if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
     });

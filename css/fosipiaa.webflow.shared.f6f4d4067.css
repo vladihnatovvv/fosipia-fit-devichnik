@@ -3904,6 +3904,54 @@ p {
     width: 100%;
   }
 
+  .how-it-going-item-content.chat-card-with-photos {
+    grid-column-gap: 4vw;
+    grid-row-gap: 4vw;
+    opacity: 1;
+    min-height: 88vw;
+    height: auto;
+    padding: 48vw 4vw 5.33333vw;
+    position: relative;
+    overflow: visible;
+  }
+
+  .chat-photo-cluster {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    inset: 4vw 0 auto;
+  }
+
+  .chat-photo {
+    object-fit: cover;
+    background-color: #fff;
+    border: .8vw solid #fff;
+    box-shadow: 0 2.66667vw 8vw rgba(21, 21, 21, .2);
+    position: absolute;
+  }
+
+  .chat-photo-1 {
+    z-index: 1;
+    border-radius: 4vw;
+    width: 39.4667vw;
+    height: 39.4667vw;
+    top: 1.6vw;
+    left: 4.26667vw;
+  }
+
+  .chat-photo-2 {
+    z-index: 2;
+    border-radius: 999px;
+    width: 17.0667vw;
+    height: 17.0667vw;
+    top: 0;
+    right: 8vw;
+  }
+
+  .chat-card-text {
+    width: 100%;
+  }
+
   .how-it-going-item-content.is-2 {
     opacity: 1;
     background-color: #eb82e1;

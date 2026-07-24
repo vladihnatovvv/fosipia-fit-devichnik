@@ -327,7 +327,11 @@
     }
 
     if (groups[1]) {
-      setText(".about-p", "У неё появляется НАГЛОСТЬ:", groups[1]);
+      setHTML(
+        ".about-p",
+        'У неё появляется <span class="about-highlight-accent">НАГЛОСТЬ</span>:',
+        groups[1]
+      );
       const rightSteps = [
         "✨ проявляться",
         "✨ сказать “нет”",

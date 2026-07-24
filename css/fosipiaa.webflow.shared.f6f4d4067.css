@@ -2288,6 +2288,13 @@ p {
   line-height: 1;
 }
 
+.about-highlight-accent {
+  color: #f182e6;
+  font-family: STIX Two Text, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
 .about-steps-wrap {
   grid-column-gap: 25.0667vw;
   grid-row-gap: 25.0667vw;

@@ -3218,6 +3218,9 @@ p {
     background-size: cover;
     padding-top: 36vw;
     padding-bottom: 14.6667vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
   }
 
   .cta-cont-wrap {
@@ -3225,8 +3228,10 @@ p {
     grid-row-gap: 8.26667vw;
     color: #fff;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: stretch;
+    flex: 1;
+    min-height: 100%;
     display: flex;
   }
 
@@ -3234,14 +3239,17 @@ p {
     grid-column-gap: 4.26667vw;
     grid-row-gap: 4.26667vw;
     flex-flow: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    flex: 1;
+    text-align: center;
     display: flex;
   }
 
   .cta-p {
     color: #fff;
     font-size: 4.8vw;
+    display: none;
   }
 
   .cta-btn {

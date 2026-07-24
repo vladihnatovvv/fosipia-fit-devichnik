@@ -855,19 +855,13 @@
         answer:
           "Самый популярный формат. Здесь происходит вся магия: программа, чат, задания, поддержка, движ, результаты и та самая атмосфера.",
       },
-      {
-        question: "Тариф 3 • 🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
-        label: "/лайт/",
-        answer:
-          "Лайт-формат для тех, кто хочет зайти мягко, попробовать систему и почувствовать атмосферу FIT-Девичника.",
-      },
-      {
-        question: "А попроще можно? 😳",
-        label: "/ответ/",
-        answer:
-          "YEEESSS GIIIRLL<br><br>Вася, выдыхай! 😂 Есть ещё один вариант.",
-      },
-    ];
+    {
+      question: "Тариф 3 • 🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
+      label: "/лайт/",
+      answer:
+        "Лайт-формат для тех, кто хочет зайти мягко, попробовать систему и почувствовать атмосферу FIT-Девичника.",
+    },
+  ];
 
     faqItems.forEach((item, i) => {
       const data = tariffData[i];
@@ -878,28 +872,10 @@
     });
   }
 
-  const message = q(".message");
-  if (message) {
-    const messageHeadings = qa(".message-title-wrap .h2", message);
-    if (messageHeadings[0]) messageHeadings[0].textContent = "А ПОПРОЩЕ МОЖНО? 😳";
-    if (messageHeadings[1]) messageHeadings[1].textContent = "YEEESSS GIIIRLL";
-
-    const messageTexts = [
-      "Тариф 1",
-      "💎 Я ХОЧУ ВСЁ И СРАЗУ",
-      "$990",
-      "VIP-формат для тех, кто хочет максимум внимания, сопровождения и личной работы.",
-      "Вася, выдыхай! 😂",
-      "Есть ещё один вариант.",
-      "Тариф 3",
-      "🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
-    ];
-
-    const nodes = qa(".message-wrap > div, .message-wrap-pink > div", message);
-    nodes.forEach((el, i) => {
-      if (messageTexts[i]) el.innerHTML = messageTexts[i];
-    });
-  }
+const message = q(".message");
+if (message) {
+  message.remove();
+}
 
   const cta = q(".cta");
   if (cta) {

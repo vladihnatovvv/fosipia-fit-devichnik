@@ -4165,6 +4165,21 @@ p {
     display: flex;
   }
 
+  .hero-review-label {
+    color: #ffffffd9;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 3.2vw;
+    font-weight: 700;
+  }
+
+  .hero-review-image {
+    border-radius: 4.8vw;
+    width: min(100%, 72vw);
+    display: block;
+    box-shadow: 0 4vw 10vw #15151540;
+  }
+
   .hero-content-wraper.ty {
     flex-flow: column;
     justify-content: center;

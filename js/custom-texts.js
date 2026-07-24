@@ -215,9 +215,11 @@
     if (heroMeta) {
       heroMeta.style.flexDirection = "column";
       heroMeta.style.alignItems = "flex-start";
-      heroMeta.style.gap = "1.6vw";
-      heroMeta.innerHTML =
-        "<div>Отзыв Кати</div><div>Старт нового потока: ___</div><div>Осталось мест: ___</div>";
+      heroMeta.style.gap = "2.4vw";
+      heroMeta.innerHTML = `
+        <div class="hero-review-label">Отзыв Кати</div>
+        <img src="images/hero-review-kateryna.jpg" alt="Отзыв Кати" class="hero-review-image" loading="lazy">
+      `;
     }
   }
 

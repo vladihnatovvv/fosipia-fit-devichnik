@@ -567,18 +567,27 @@
 
     setText(".sticky-top-text .list-to-side", "/фейс-контроль/", author);
     const authorHeadings = qa(".sticky-heading-wrap .h2", author);
-    if (authorHeadings[0]) authorHeadings[0].textContent = "✋🏼🚨 ГОП СТОП БАРЫШНЯ.";
+    if (authorHeadings[0]) authorHeadings[0].textContent = "ГОП СТОП, БАРЫШНЯ.";
     if (authorHeadings[1]) authorHeadings[1].textContent = "Фейс-контроль FIT-Девичника.";
 
     const quoteParts = qa(".quote-part > div", author);
     const quoteTexts = [
-      "Любишь вкусно поесть?<br>Любишь ДЕРЗКИЕ цели?<br>Готова к немного безумным идеям?<br>Способна влюбиться в новую версию себя?",
-      "😏",
-      "Ну ладно…<br>Гена, пропускай её!",
-      "Она выглядит подозрительно вайбовой.<br>Боюсь, это наша бестия 😂",
-      "Погнали, покажу, что за дискотека внутри 👇",
+      "Любишь вкусно поесть?<br><span class=\"quote-inline-accent\">Любишь дерзкие цели?</span><br>Готова к немного безумным идеям?<br>Способна влюбиться в новую версию себя?",
+      "<div class=\"quote-sticker-wrap\"><span class=\"quote-sticker\">✦</span><span class=\"quote-sticker\">😉</span></div>",
+      "Ну ладно...<br><span class=\"quote-inline-strong\">Гена, пропускай её!</span>",
+      "Она выглядит подозрительно вайбовой.<br><span class=\"quote-inline-strong\">Боюсь, это наша бестия.</span>",
+      "<span class=\"quote-cta-script\">Погнали, покажу,<br>что за дискотека внутри</span>",
+    ];
+    const quoteClasses = [
+      "quote-card question-card",
+      "quote-card sticker-card",
+      "quote-card pass-card",
+      "quote-card note-card",
+      "quote-card cta-card",
     ];
     quoteParts.forEach((el, i) => {
+      const wrapper = el.parentElement;
+      if (wrapper && quoteClasses[i]) wrapper.className = `quote-part ${quoteClasses[i]}`;
       if (quoteTexts[i]) el.innerHTML = quoteTexts[i];
     });
   }

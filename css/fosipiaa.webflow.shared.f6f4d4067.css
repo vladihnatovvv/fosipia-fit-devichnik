@@ -2755,6 +2755,17 @@ p {
     display: flex;
     position: sticky;
     top: 0;
+    isolation: isolate;
+  }
+
+  .sticky-part:before {
+    content: "";
+    background:
+      linear-gradient(180deg, rgba(10, 10, 16, .18) 0%, rgba(10, 10, 16, .08) 22%, rgba(10, 10, 16, .32) 48%, rgba(10, 10, 16, .58) 100%),
+      linear-gradient(90deg, rgba(8, 8, 12, .52) 0%, rgba(8, 8, 12, .14) 48%, rgba(8, 8, 12, .38) 100%);
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
   .sticky-content-wrapper {
@@ -2763,6 +2774,8 @@ p {
     padding-top: 10.6667vw;
     padding-bottom: 10vw;
     display: flex;
+    position: relative;
+    z-index: 1;
   }
 
   .sticky-top-text {
@@ -2799,8 +2812,103 @@ p {
   }
 
   .quote-part {
-    padding-bottom: 4.26667vw;
+    padding-bottom: 2.93333vw;
     font-size: 4.26667vw;
+  }
+
+  .quote-card > div {
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 5.86667vw;
+    background: rgba(10, 10, 16, .28);
+    box-shadow: 0 3.2vw 10vw rgba(0, 0, 0, .12);
+    backdrop-filter: blur(2.8vw);
+    -webkit-backdrop-filter: blur(2.8vw);
+    padding: 3.73333vw 4.26667vw;
+  }
+
+  .question-card > div,
+  .pass-card > div,
+  .note-card > div {
+    color: #fff;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, .3);
+  }
+
+  .question-card > div {
+    font-size: 4.8vw;
+    line-height: 1.12;
+  }
+
+  .sticker-card > div {
+    border-style: dashed;
+    background: rgba(241, 130, 230, .18);
+    padding-top: 2.13333vw;
+    padding-bottom: 2.13333vw;
+  }
+
+  .quote-sticker-wrap {
+    grid-column-gap: 2.66667vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .quote-sticker {
+    color: #fff;
+    background: rgba(241, 130, 230, .88);
+    border-radius: 999px;
+    min-width: 11.2vw;
+    height: 11.2vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 5.06667vw;
+    display: flex;
+    box-shadow: 0 1.6vw 4vw rgba(241, 130, 230, .35);
+    transform: rotate(-7deg);
+  }
+
+  .quote-sticker:last-child {
+    transform: rotate(6deg);
+  }
+
+  .pass-card > div {
+    background: rgba(255, 255, 255, .16);
+    font-size: 5.06667vw;
+    line-height: 1.05;
+  }
+
+  .note-card > div {
+    background: rgba(15, 15, 20, .38);
+    font-size: 4.53333vw;
+    line-height: 1.12;
+  }
+
+  .cta-card > div {
+    color: #151515;
+    border-color: rgba(255, 255, 255, .22);
+    background: linear-gradient(135deg, rgba(255, 214, 247, .96) 0%, rgba(241, 130, 230, .98) 100%);
+    box-shadow: 0 3.2vw 8vw rgba(241, 130, 230, .26);
+    padding: 4vw 5.06667vw;
+  }
+
+  .quote-inline-accent {
+    color: #f7a3ed;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .quote-inline-strong {
+    font-weight: 700;
+  }
+
+  .quote-cta-script {
+    letter-spacing: -.03em;
+    text-transform: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 6vw;
+    font-style: italic;
+    font-weight: 700;
+    line-height: .92;
+    display: block;
   }
 
   .quote-part.pink-text {

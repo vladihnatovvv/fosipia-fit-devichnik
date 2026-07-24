@@ -2,6 +2,8 @@
   document.documentElement.lang = "ru";
 
   const PAYMENT_URL = "https://buy.stripe.com/7sY14m1Yhcbnd3Ock84Ja03";
+  const VIP_PAYMENT_URL = "";
+  const LITE_PAYMENT_URL = "";
   const INSTAGRAM_URL =
     "https://www.instagram.com/vlada.lavrichenko?igsh=NTVmMzg3MGxlZmt0";
   const SUPPORT_URL = "https://t.me/vlada_010";
@@ -40,6 +42,20 @@
           `<div class="slider-bullet-item"><div>${item}</div></div>`
       )
       .join("");
+
+  const smoothScrollTo = (target) => {
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const bindScrollButton = (button, target) => {
+    if (!button || !target) return;
+    button.setAttribute("href", "#pricing");
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      smoothScrollTo(target);
+    });
+  };
 
   const startCountdown = () => {
     const timerGroups = qa(".timer-wrap");
@@ -204,12 +220,6 @@
         "<div>Отзыв Кати</div><div>Старт нового потока: ___</div><div>Осталось мест: ___</div>";
     }
   }
-
-  qa(".cta-btn").forEach((btn) => {
-    const first = btn.firstElementChild;
-    if (first) first.textContent = "🔥 Я ХОЧУ В ЭТУ ТУСОВКУ";
-    if (btn.tagName === "A") btn.href = PAYMENT_URL;
-  });
 
   const stickyButtonText = q(".cta-btn-wrap .cta-btn > div:first-child");
   if (stickyButtonText) {
@@ -837,39 +847,128 @@
 
   const faq = q(".faq");
   if (faq) {
+    faq.id = "pricing";
     const faqHeadings = qa(".faq-heading-wrapper .h2-faq", faq);
     if (faqHeadings[0]) faqHeadings[0].innerHTML = "<span class=\"faq-pink\">ТАРИФЫ</span>";
-    if (faqHeadings[1]) faqHeadings[1].innerHTML = "Выбирай формат участия";
+    if (faqHeadings[1]) faqHeadings[1].innerHTML = "Выбирай нужный формат и переходи сразу к оплате";
 
-    const faqItems = qa(".faq-item", faq);
+    const itemsWrap = q(".faq-items-wrap", faq);
     const tariffData = [
       {
-        question: "Тариф 1 • 💎 Я ХОЧУ ВСЁ И СРАЗУ • $990",
-        label: "/vip/",
-        answer:
-          "VIP-формат для тех, кто хочет максимум внимания, сопровождения и личной работы.",
+        badge: "VIP-ФОРМАТ",
+        title: "💎 VIP-ЛЕГЕНДА",
+        subtitle: "💎 Я ХОЧУ ВСЁ И СРАЗУ ($990)",
+        note: "Максимальный результат за один месяц.",
+        lead:
+          "Это уже не просто участие в FIT-Девичнике. Это месяц, где я буквально становлюсь твоим личным тренером, подружкой, наставником и человеком, который не даст тебе слиться.",
+        features: [
+          "🍑 Фигура, построенная именно под твою цель.",
+          "🥗 Питание, которое работает именно для тебя.",
+          "📈 Полное сопровождение.",
+          "🧠 Глубокая работа с мышлением.",
+          "🚀 Работа с реализацией.",
+        ],
+        resultTitle: "Именно поэтому здесь происходят самые сумасшедшие истории:",
+        results: [
+          "🚗 Покупают машины.",
+          "💼 Запускают бизнес.",
+          "💰 Увеличивают доход.",
+          "❤️ Встречают здоровые отношения.",
+          "🔥 Строят тело, в котором наконец начинают кайфовать от себя.",
+        ],
+        summary:
+          "Этот тариф выбирают девушки, которые хотят не просто пройти программу. Они хотят за месяц изменить настолько много, насколько это вообще возможно.",
+        button: "Выбрать VIP",
+        url: VIP_PAYMENT_URL,
       },
       {
-        question: "Тариф 2 • 🔥 FIT-ДЕВИЧНИК «ТОЧКА НЕВОЗВРАТА» • $150",
-        label: "/популярный/",
-        answer:
-          "Самый популярный формат. Здесь происходит вся магия: программа, чат, задания, поддержка, движ, результаты и та самая атмосфера.",
+        badge: "САМЫЙ ПОПУЛЯРНЫЙ",
+        title: "🔥 FIT-ДЕВИЧНИК",
+        subtitle: "ТОЧКА НЕВОЗВРАТА ($150)",
+        note:
+          "Именно здесь проходит тот самый FIT-Девичник, о котором ты только что читала.",
+        lead:
+          "Это тариф для тех, кто хочет построить красивое тело, вернуть энергию и наконец перестать откладывать свою жизнь на потом.",
+        features: [
+          "🍑 Тело, которым хочется любоваться.",
+          "🥗 Питание без крайностей.",
+          "🧠 Работа с психикой и привычками.",
+          "👯‍♀️ Атмосфера, ради которой многие потом возвращаются снова.",
+        ],
+        resultTitle: "Что ты получишь в результате:",
+        results: [
+          "✨ Красивое и сильное тело.",
+          "✨ Больше энергии каждый день.",
+          "✨ Новые привычки, которые останутся после программы.",
+          "✨ Дисциплину без насилия над собой.",
+          "✨ Смелость начать двигаться к своим настоящим желаниям.",
+        ],
+        summary:
+          "Этот тариф выбирают девушки, которые хотят получить полноценный FIT-Девичник и пройти весь путь вместе с другими участницами.",
+        button: "Оплатить тариф",
+        url: PAYMENT_URL,
       },
-    {
-      question: "Тариф 3 • 🌸 Я ПРОСТО ПОСМОТРЕТЬ • $49",
-      label: "/лайт/",
-      answer:
-        "Лайт-формат для тех, кто хочет зайти мягко, попробовать систему и почувствовать атмосферу FIT-Девичника.",
-    },
-  ];
+      {
+        badge: "ЛАЙТ-ФОРМАТ",
+        title: "🌸 ТАРИФ 3",
+        subtitle: "Я ПРОСТО ПОСМОТРЕТЬ ($49)",
+        note:
+          "Для тех, кто хочет познакомиться с системой в комфортном темпе.",
+        lead: "Что входит:",
+        features: [
+          "🥐 Все материалы программы.",
+          "🏋️ Все тренировки.",
+          "🍑 Все меню.",
+          "🧠 Все уроки и задания.",
+        ],
+        resultTitle: "Без:",
+        results: [
+          "❌ Чата участниц.",
+          "❌ Моей поддержки.",
+          "❌ Куратора.",
+          "❌ Еженедельных эфиров.",
+        ],
+        summary:
+          "Подойдёт, если ты любишь проходить программы самостоятельно и хочешь сначала попробовать систему.",
+        button: "Выбрать лайт",
+        url: LITE_PAYMENT_URL,
+      },
+    ];
 
-    faqItems.forEach((item, i) => {
-      const data = tariffData[i];
-      if (!data) return;
-      setText(".faq-question", data.question, item);
-      setText(".faq-body-wrap .tab-result-txt", data.label, item);
-      setHTML(".faq-answer", data.answer, item);
-    });
+    if (itemsWrap) {
+      itemsWrap.classList.add("pricing-cards");
+      itemsWrap.innerHTML = tariffData
+        .map(
+          (item, index) => `
+            <article class="pricing-card ${index === 1 ? "is-featured" : ""}">
+              <div class="pricing-card-top">
+                <div class="pricing-card-badge">${item.badge}</div>
+                <h3 class="pricing-card-title">${item.title}</h3>
+                <div class="pricing-card-subtitle">${item.subtitle}</div>
+                <p class="pricing-card-note">${item.note}</p>
+              </div>
+              <div class="pricing-card-body">
+                <p class="pricing-card-lead">${item.lead}</p>
+                <ul class="pricing-card-list">
+                  ${item.features.map((feature) => `<li>${feature}</li>`).join("")}
+                </ul>
+                <div class="pricing-card-divider"></div>
+                <div class="pricing-card-results-title">${item.resultTitle}</div>
+                <ul class="pricing-card-list compact">
+                  ${item.results.map((result) => `<li>${result}</li>`).join("")}
+                </ul>
+                <p class="pricing-card-summary">${item.summary}</p>
+              </div>
+              ${
+                item.url
+                  ? `<a class="pricing-card-btn cta-btn" href="${item.url}" target="_blank" rel="noopener noreferrer"><div>${item.button}</div></a>`
+                  : `<button class="pricing-card-btn cta-btn is-disabled" type="button"><div>${item.button}</div></button>`
+              }
+            </article>
+          `
+        )
+        .join("");
+    }
   }
 
 const message = q(".message");
@@ -895,6 +994,11 @@ if (message) {
     const ctaMeta = q(".hero-btn-timer", cta);
     if (ctaMeta) ctaMeta.innerHTML = "";
   }
+
+  const pricingSection = q("#pricing");
+  bindScrollButton(q(".hero-sec .cta-btn"), pricingSection);
+  bindScrollButton(q(".cta .cta-btn"), pricingSection);
+  bindScrollButton(q(".cta-btn-wrap .cta-btn"), pricingSection);
 
   startCountdown();
   enableDesktopPhonePreview();

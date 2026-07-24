@@ -620,7 +620,23 @@
     ];
 
     items.forEach((item, i) => {
-      const textEl = q(".how-it-going-item-content > div:last-child", item);
+      const content = q(".how-it-going-item-content", item);
+      if (!content) return;
+
+      if (i === 0) {
+        content.classList.add("menu-card-with-photos");
+        content.innerHTML = `
+          <div class="menu-photo-cluster" aria-hidden="true">
+            <img src="images/menu-photo-1.jpg" alt="" class="menu-photo menu-photo-1"/>
+            <img src="images/menu-photo-2.jpg" alt="" class="menu-photo menu-photo-2"/>
+            <img src="images/menu-photo-3.jpg" alt="" class="menu-photo menu-photo-3"/>
+          </div>
+          <div class="menu-card-text">${itemTexts[i]}</div>
+        `;
+        return;
+      }
+
+      const textEl = content.lastElementChild;
       if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
     });
   }

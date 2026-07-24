@@ -2,8 +2,8 @@
   document.documentElement.lang = "ru";
 
   const PAYMENT_URL = "https://buy.stripe.com/7sY14m1Yhcbnd3Ock84Ja03";
-  const VIP_PAYMENT_URL = "";
-  const LITE_PAYMENT_URL = "";
+  const VIP_PAYMENT_URL = "https://buy.stripe.com/3cIaEWbyRcbn3te6ZO4Ja05";
+  const LITE_PAYMENT_URL = "https://buy.stripe.com/5kQdR87iB2AN8Ny3NC4Ja04";
   const INSTAGRAM_URL =
     "https://www.instagram.com/vlada.lavrichenko?igsh=NTVmMzg3MGxlZmt0";
   const SUPPORT_URL = "https://t.me/vlada_010";
@@ -759,6 +759,81 @@
         name: "Кейс 8",
         meta: "профиль",
         image: "images/reviews/case-8-main.jpg",
+      },
+      {
+        name: "Yuliianiia",
+        meta: "отзыв о внутренней опоре",
+        image: "images/reviews/review-yuliianiia-message.jpg",
+      },
+      {
+        name: "Катя",
+        meta: "отзыв про реализацию",
+        image: "images/reviews/review-katya-business.jpg",
+      },
+      {
+        name: "Отзыв",
+        meta: "снова поверить в себя",
+        image: "images/reviews/review-confidence-1.jpg",
+      },
+      {
+        name: "Отзыв",
+        meta: "про поддержку",
+        image: "images/reviews/review-support-1.jpg",
+      },
+      {
+        name: "Чат",
+        meta: "живой движ внутри",
+        image: "images/reviews/review-chat-1.jpg",
+      },
+      {
+        name: "Отзыв",
+        meta: "про энергетику Влады",
+        image: "images/reviews/review-energy-field.jpg",
+      },
+      {
+        name: "Отзыв",
+        meta: "про лёгкое похудение",
+        image: "images/reviews/review-food-freedom-1.jpg",
+      },
+      {
+        name: "Отзыв",
+        meta: "без чувства вины",
+        image: "images/reviews/review-food-freedom-2.jpg",
+      },
+      {
+        name: "Anastasia",
+        meta: "голосовой отзыв + результат",
+        image: "images/reviews/review-anastasia-result-voice.png",
+      },
+      {
+        name: "Anastasia",
+        meta: "большой развёрнутый отзыв",
+        image: "images/reviews/review-anastasia-long.png",
+      },
+      {
+        name: "Отчёт",
+        meta: "первые результаты и режим",
+        image: "images/reviews/review-report-1405.jpg",
+      },
+      {
+        name: "Kristy",
+        meta: "первое знакомство с программой",
+        image: "images/reviews/review-kristy-story.jpg",
+      },
+      {
+        name: "Viktoriia",
+        meta: "поддержка и антистресс",
+        image: "images/reviews/review-viktoriia-care.jpg",
+      },
+      {
+        name: "Полина",
+        meta: "отзыв про поддержку на расстоянии",
+        image: "images/reviews/review-polina-support.jpg",
+      },
+      {
+        name: "Голосовой отзыв",
+        meta: "заметный прогресс в теле",
+        image: "images/reviews/review-voice-discovery.jpg",
       },
     ];
     const extraCases = [

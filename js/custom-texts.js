@@ -299,15 +299,20 @@
     if (groups[0]) {
       setText(".about-p", "Когда женщина начинает:", groups[0]);
       const leftSteps = [
-        "✔ высыпаться",
-        "✔ нормально есть",
-        "✔ двигаться",
-        "✔ нравиться себе в зеркале",
-        "✔ перестаёт жить в режиме ПОСЛЕДНЕЙ НЕРВНОЙ КЛЕТКИ…",
-        "😏",
+        "высыпаться",
+        "нормально есть",
+        "двигаться",
+        "нравиться себе в зеркале",
+        "перестаёт жить в режиме ПОСЛЕДНЕЙ НЕРВНОЙ КЛЕТКИ…",
       ];
-      qa(".about-step p", groups[0]).forEach((el, i) => {
-        if (leftSteps[i]) el.innerHTML = leftSteps[i];
+      qa(".about-step", groups[0]).forEach((step, i) => {
+        const text = q("p", step);
+        if (leftSteps[i] && text) {
+          text.innerHTML = leftSteps[i];
+          step.style.display = "";
+          return;
+        }
+        step.style.display = "none";
       });
     }
 
@@ -321,8 +326,14 @@
         "✨ уйти оттуда, где её не ценят",
         "✨ наконец выбрать себя",
       ];
-      qa(".about-step p", groups[1]).forEach((el, i) => {
-        if (rightSteps[i]) el.innerHTML = rightSteps[i];
+      qa(".about-step", groups[1]).forEach((step, i) => {
+        const text = q("p", step);
+        if (rightSteps[i] && text) {
+          text.innerHTML = rightSteps[i];
+          step.style.display = "";
+          return;
+        }
+        step.style.display = "none";
       });
     }
   }
@@ -335,7 +346,11 @@
         "Если ты думаешь, что я <span class=\"h2-accent pink\">темщица</span> …";
     }
     if (headings[1]) headings[1].textContent = "то НЕТ. 😏";
-    setText(".list-to-side", "Ныряй 👇", system);
+    setText(
+      ".list-to-side",
+      "У меня есть конкретная схема, как сделать так, чтобы изменения стали ЗАКОНОМЕРНОСТЬЮ, работая комплексно через…",
+      system
+    );
 
     const slides = qa(".slide-item", system);
     const slideData = [
@@ -608,13 +623,13 @@
       reviews
     );
     const labels = qa(".slider-with-name .list-to-side", reviews);
-    if (labels[0]) labels[0].textContent = "/основные кейсы/";
-    if (labels[1]) labels[1].textContent = "/дополнительные ракурсы/";
+    if (labels[0]) labels[0].remove();
+    if (labels[1]) labels[1].remove();
 
     const resultGroups = qa(".slider-with-name", reviews);
     const primaryCases = [
       {
-        name: "Катюша",
+        name: "Катя",
         meta: "фронт + профиль",
         image: "images/reviews/katyusha-main.jpg",
       },
@@ -624,19 +639,39 @@
         image: "images/reviews/karina-main.jpg",
       },
       {
-        name: "Наташка",
+        name: "Наталья",
         meta: "фронт",
         image: "images/reviews/natashka-main.jpg",
       },
       {
-        name: "Настя, школьная подружка",
+        name: "Настя",
         meta: "фронт + профиль",
         image: "images/reviews/nastya-main.jpg",
+      },
+      {
+        name: "Кейс 5",
+        meta: "фронт + профиль",
+        image: "images/reviews/case-5-main.jpg",
+      },
+      {
+        name: "Кейс 6",
+        meta: "профиль",
+        image: "images/reviews/case-6-main.jpg",
+      },
+      {
+        name: "Кейс 7",
+        meta: "профиль",
+        image: "images/reviews/case-7-main.jpg",
+      },
+      {
+        name: "Кейс 8",
+        meta: "профиль",
+        image: "images/reviews/case-8-main.jpg",
       },
     ];
     const extraCases = [
       {
-        name: "Катюша",
+        name: "Катя",
         meta: "фронт + спина",
         image: "images/reviews/katyusha-back.jpg",
       },
@@ -651,19 +686,29 @@
         image: "images/reviews/karina-side-close.jpg",
       },
       {
-        name: "Наташка",
+        name: "Наталья",
         meta: "профиль",
         image: "images/reviews/natashka-side.jpg",
       },
       {
-        name: "Настя, школьная подружка",
+        name: "Настя",
         meta: "спина + фронт",
         image: "images/reviews/nastya-back.jpg",
       },
       {
-        name: "Настя, школьная подружка",
+        name: "Настя",
         meta: "дополнительный профиль",
         image: "images/reviews/nastya-side-alt.jpg",
+      },
+      {
+        name: "Кейс 5",
+        meta: "детальный профиль",
+        image: "images/reviews/case-5-detail.jpg",
+      },
+      {
+        name: "Кейс 6",
+        meta: "деталь",
+        image: "images/reviews/case-6-detail.png",
       },
     ];
 

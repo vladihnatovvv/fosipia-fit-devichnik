@@ -849,122 +849,84 @@
   if (faq) {
     faq.id = "pricing";
     const faqHeadings = qa(".faq-heading-wrapper .h2-faq", faq);
-    if (faqHeadings[0]) faqHeadings[0].innerHTML = "<span class=\"faq-pink\">ТАРИФЫ</span>";
-    if (faqHeadings[1]) faqHeadings[1].innerHTML = "Выбирай нужный формат и переходи сразу к оплате";
+    if (faqHeadings[0]) faqHeadings[0].innerHTML = "<span class=\"faq-pink\">ВОПРОСЫ</span> / ОТВЕТЫ";
+    if (faqHeadings[1]) faqHeadings[1].innerHTML = "Всё, что тебе важно знать перед стартом";
 
     const itemsWrap = q(".faq-items-wrap", faq);
-    const tariffData = [
+    const faqData = [
       {
-        badge: "VIP-ФОРМАТ",
-        title: "💎 VIP-ЛЕГЕНДА",
-        subtitle: "💎 Я ХОЧУ ВСЁ И СРАЗУ ($990)",
-        note: "Максимальный результат за один месяц.",
-        lead:
-          "Это уже не просто участие в FIT-Девичнике. Это месяц, где я буквально становлюсь твоим личным тренером, подружкой, наставником и человеком, который не даст тебе слиться.",
-        features: [
-          "🍑 Фигура, построенная именно под твою цель.",
-          "🥗 Питание, которое работает именно для тебя.",
-          "📈 Полное сопровождение.",
-          "🧠 Глубокая работа с мышлением.",
-          "🚀 Работа с реализацией.",
-        ],
-        resultTitle: "Именно поэтому здесь происходят самые сумасшедшие истории:",
-        results: [
-          "🚗 Покупают машины.",
-          "💼 Запускают бизнес.",
-          "💰 Увеличивают доход.",
-          "❤️ Встречают здоровые отношения.",
-          "🔥 Строят тело, в котором наконец начинают кайфовать от себя.",
-        ],
-        summary:
-          "Этот тариф выбирают девушки, которые хотят не просто пройти программу. Они хотят за месяц изменить настолько много, насколько это вообще возможно.",
-        button: "Выбрать VIP",
-        url: VIP_PAYMENT_URL,
+        question: "❓ Можно ли платить частями?",
+        label: "/ответ/",
+        answer:
+          "Да.<br><br>Если тебе удобнее разбить оплату на несколько частей — напиши мне, и мы спокойно подберём вариант. Главное — не откладывать свою жизнь ещё на один “идеальный момент”. 😏",
       },
       {
-        badge: "САМЫЙ ПОПУЛЯРНЫЙ",
-        title: "🔥 FIT-ДЕВИЧНИК",
-        subtitle: "ТОЧКА НЕВОЗВРАТА ($150)",
-        note:
-          "Именно здесь проходит тот самый FIT-Девичник, о котором ты только что читала.",
-        lead:
-          "Это тариф для тех, кто хочет построить красивое тело, вернуть энергию и наконец перестать откладывать свою жизнь на потом.",
-        features: [
-          "🍑 Тело, которым хочется любоваться.",
-          "🥗 Питание без крайностей.",
-          "🧠 Работа с психикой и привычками.",
-          "👯‍♀️ Атмосфера, ради которой многие потом возвращаются снова.",
-        ],
-        resultTitle: "Что ты получишь в результате:",
-        results: [
-          "✨ Красивое и сильное тело.",
-          "✨ Больше энергии каждый день.",
-          "✨ Новые привычки, которые останутся после программы.",
-          "✨ Дисциплину без насилия над собой.",
-          "✨ Смелость начать двигаться к своим настоящим желаниям.",
-        ],
-        summary:
-          "Этот тариф выбирают девушки, которые хотят получить полноценный FIT-Девичник и пройти весь путь вместе с другими участницами.",
-        button: "Оплатить тариф",
-        url: PAYMENT_URL,
+        question: "❓ А если я никогда не тренировалась?",
+        label: "/ответ/",
+        answer:
+          "Идеально.<br><br>Программа рассчитана как на новичков, так и на тех, кто уже давно занимается.<br><br>Ты проходишь её в своём темпе, а упражнения всегда можно адаптировать под твой уровень подготовки.",
       },
       {
-        badge: "ЛАЙТ-ФОРМАТ",
-        title: "🌸 ТАРИФ 3",
-        subtitle: "Я ПРОСТО ПОСМОТРЕТЬ ($49)",
-        note:
-          "Для тех, кто хочет познакомиться с системой в комфортном темпе.",
-        lead: "Что входит:",
-        features: [
-          "🥐 Все материалы программы.",
-          "🏋️ Все тренировки.",
-          "🍑 Все меню.",
-          "🧠 Все уроки и задания.",
-        ],
-        resultTitle: "Без:",
-        results: [
-          "❌ Чата участниц.",
-          "❌ Моей поддержки.",
-          "❌ Куратора.",
-          "❌ Еженедельных эфиров.",
-        ],
-        summary:
-          "Подойдёт, если ты любишь проходить программы самостоятельно и хочешь сначала попробовать систему.",
-        button: "Выбрать лайт",
-        url: LITE_PAYMENT_URL,
+        question: "❓ А если у меня вообще нет времени?",
+        label: "/ответ/",
+        answer:
+          "Именно поэтому многие и приходят.<br><br>Тренировки, питание и задания сделаны так, чтобы их можно было встроить в обычную жизнь, а не жить только ради программы.",
+      },
+      {
+        question: "❓ Если я не хочу худеть, мне всё равно подойдёт?",
+        label: "/ответ/",
+        answer:
+          "Да.<br><br>FIT-Девичник — это не только про похудение.<br><br>Многие приходят за энергией, дисциплиной, красивым телом, уверенностью или чтобы наконец перестать откладывать свою жизнь.",
+      },
+      {
+        question: "❓ Что если я сорвусь или пропущу несколько дней?",
+        label: "/ответ/",
+        answer:
+          "Ничего страшного.<br><br>Мы не играем в “идеальную девочку”.<br><br>Наша задача — научиться возвращаться обратно, а не бросать всё после первой ошибки.",
+      },
+      {
+        question: "❓ На сколько времени уходит программа в день?",
+        label: "/ответ/",
+        answer:
+          "В среднем достаточно 30–60 минут в день.<br><br>Всё зависит от твоего темпа и выбранного тарифа.",
+      },
+      {
+        question: "❓ Что если у меня есть ограничения по здоровью?",
+        label: "/ответ/",
+        answer:
+          "Перед стартом мы проводим диагностику и учитываем особенности организма.<br><br>Если есть серьёзные медицинские ограничения, лучше заранее написать мне — посмотрим, подойдёт ли тебе программа и как её адаптировать.",
+      },
+      {
+        question: "❓ Я стесняюсь заходить в чат…",
+        label: "/ответ/",
+        answer:
+          "😂 Через пару дней обычно уже не стесняются.<br><br>У нас очень тёплая атмосфера, где никто никого не сравнивает и не осуждает.<br><br>Наоборот — именно чат часто становится тем самым местом, из которого потом не хочется уходить.",
       },
     ];
 
     if (itemsWrap) {
-      itemsWrap.classList.add("pricing-cards");
-      itemsWrap.innerHTML = tariffData
+      itemsWrap.classList.remove("pricing-cards");
+      itemsWrap.innerHTML = faqData
         .map(
           (item, index) => `
-            <article class="pricing-card ${index === 1 ? "is-featured" : ""}">
-              <div class="pricing-card-top">
-                <div class="pricing-card-badge">${item.badge}</div>
-                <h3 class="pricing-card-title">${item.title}</h3>
-                <div class="pricing-card-subtitle">${item.subtitle}</div>
-                <p class="pricing-card-note">${item.note}</p>
+            <div data-hover="false" data-delay="500" class="faq-item ${index === 0 ? "first" : ""} w-dropdown">
+              <div class="faq-header w-dropdown-toggle">
+                <div class="faq-question">${item.question}</div>
+                <div class="faq-icon-wrap">
+                  <div class="faq-icon w-embed">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 0V10M0 5H10" stroke="currentColor" stroke-width="1.2"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div class="pricing-card-body">
-                <p class="pricing-card-lead">${item.lead}</p>
-                <ul class="pricing-card-list">
-                  ${item.features.map((feature) => `<li>${feature}</li>`).join("")}
-                </ul>
-                <div class="pricing-card-divider"></div>
-                <div class="pricing-card-results-title">${item.resultTitle}</div>
-                <ul class="pricing-card-list compact">
-                  ${item.results.map((result) => `<li>${result}</li>`).join("")}
-                </ul>
-                <p class="pricing-card-summary">${item.summary}</p>
-              </div>
-              ${
-                item.url
-                  ? `<a class="pricing-card-btn cta-btn" href="${item.url}" target="_blank" rel="noopener noreferrer"><div>${item.button}</div></a>`
-                  : `<button class="pricing-card-btn cta-btn is-disabled" type="button"><div>${item.button}</div></button>`
-              }
-            </article>
+              <nav class="faq-body w-dropdown-list">
+                <div class="faq-body-wrap">
+                  <div class="tab-result-txt">${item.label}</div>
+                  <p class="faq-answer">${item.answer}</p>
+                </div>
+              </nav>
+            </div>
           `
         )
         .join("");

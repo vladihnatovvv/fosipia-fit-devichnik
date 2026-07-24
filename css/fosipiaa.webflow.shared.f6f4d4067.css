@@ -3450,6 +3450,44 @@ p {
     pointer-events: none;
   }
 
+  .faq-finale {
+    grid-column-gap: 5.33333vw;
+    grid-row-gap: 5.33333vw;
+    text-align: center;
+    background: linear-gradient(180deg, #fff 0%, #fff5fd 100%);
+    border: .266667vw solid #f182e633;
+    border-radius: 8vw;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 6.4vw;
+    padding: 7.46667vw 5.33333vw 0;
+    display: flex;
+  }
+
+  .faq-finale-text {
+    grid-column-gap: 2.66667vw;
+    grid-row-gap: 2.66667vw;
+    flex-flow: column;
+    display: flex;
+  }
+
+  .faq-finale-text p {
+    color: #151515;
+    margin: 0;
+    font-size: 4.26667vw;
+    line-height: 1.2;
+  }
+
+  .faq-finale-text .faq-finale-accent {
+    color: #f182e6;
+    font-size: 6.13333vw;
+    font-weight: 700;
+  }
+
+  .faq-finale-btn {
+    width: 100%;
+  }
+
   .faq-item {
     border-top: .266667vw #adadad;
     border-bottom: .266667vw solid #adadad;

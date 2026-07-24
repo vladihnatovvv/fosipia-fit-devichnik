@@ -930,6 +930,22 @@
           `
         )
         .join("");
+
+      itemsWrap.insertAdjacentHTML(
+        "beforeend",
+        `
+          <div class="faq-finale">
+            <div class="faq-finale-text">
+              <p>Кажется, вопросы закончились… 😏</p>
+              <p>Теперь остался только один.</p>
+              <p class="faq-finale-accent">Ты с нами? 💅</p>
+            </div>
+            <a class="faq-finale-btn cta-btn" href="#pricing-cta">
+              <div>🔥 Я ХОЧУ В ЭТУ ТУСОВКУ</div>
+            </a>
+          </div>
+        `
+      );
     }
   }
 
@@ -961,6 +977,7 @@ if (message) {
   bindScrollButton(q(".hero-sec .cta-btn"), pricingSection);
   bindScrollButton(q(".cta .cta-btn"), pricingSection);
   bindScrollButton(q(".cta-btn-wrap .cta-btn"), pricingSection);
+  bindScrollButton(q(".faq-finale-btn"), q(".cta-btn-wrap") || pricingSection);
 
   startCountdown();
   enableDesktopPhonePreview();

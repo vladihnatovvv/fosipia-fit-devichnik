@@ -663,6 +663,18 @@
         return;
       }
 
+      if (i === 3) {
+        content.classList.add("challenge-card-with-photos");
+        content.innerHTML = `
+          <div class="challenge-photo-cluster" aria-hidden="true">
+            <img src="images/challenge-photo-1.jpg" alt="" class="challenge-photo challenge-photo-1"/>
+            <img src="images/challenge-photo-2.jpg" alt="" class="challenge-photo challenge-photo-2"/>
+          </div>
+          <div class="challenge-card-text">${itemTexts[i]}</div>
+        `;
+        return;
+      }
+
       const textEl = content.lastElementChild;
       if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
     });

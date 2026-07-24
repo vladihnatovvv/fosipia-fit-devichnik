@@ -649,6 +649,20 @@
         return;
       }
 
+      if (i === 2) {
+        content.classList.add("body-card-with-photos");
+        content.innerHTML = `
+          <div class="body-photo-cluster" aria-hidden="true">
+            <img src="images/body-photo-1.png" alt="" class="body-photo body-photo-1"/>
+            <img src="images/body-photo-2.png" alt="" class="body-photo body-photo-2"/>
+            <img src="images/body-photo-3.png" alt="" class="body-photo body-photo-3"/>
+            <img src="images/body-photo-4.png" alt="" class="body-photo body-photo-4"/>
+          </div>
+          <div class="body-card-text">${itemTexts[i]}</div>
+        `;
+        return;
+      }
+
       const textEl = content.lastElementChild;
       if (textEl && itemTexts[i]) textEl.innerHTML = itemTexts[i];
     });
